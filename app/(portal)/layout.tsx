@@ -1,5 +1,4 @@
 // @ts-nocheck
-import { redirect } from 'next/navigation';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 
@@ -9,7 +8,6 @@ export default async function PortalLayout({ children }) {
     data: { session },
   } = await supabase.auth.getSession();
 
-  if (!session) redirect('/signin');
 
   return (
     <main className="min-h-screen bg-neutral-950 text-white p-6">
